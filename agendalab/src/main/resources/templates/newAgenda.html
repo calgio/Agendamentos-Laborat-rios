@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<title>Agendas de Aulas no Laboratorio</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	</head>
+	<body>
+		<header>
+			<!-- As a link -->
+			<nav class="navbar navbar-light bg-light">
+			  <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Agendas de Aulas</span>
+			</nav>
+		</header>
+		
+		<section>
+			<div class="container" style="width: 60%; padding-bottom: 30px;">
+				
+				<nav aria-label="breadcrumb" style="...">
+				  <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
+				    <li class="breadcrumb-item" aria-current="page">Agendas de Aulas</li>
+				    <li class="breadcrumb-item active" aria-current="page"> Novo Agendamento</li>
+				  </ol>
+				</nav>
+				<div>
+					<th:block th:include="mensagemValidacao"></th:block>
+					<form method="post">
+						<div class="form-group">
+							<input type="text" class="form-control" name="professor" placeholder="Professor *">
+						</div>
+						
+						<div class="form-group">
+							<input type="text" class="form-control" name="dataAgendada" placeholder="Data agendada *">
+						</div>
+						
+						<div class="form-group">
+							<input type="text" class="form-control" name="horaInicio" placeholder="Hora de inicio *">
+						</div>
+						
+						<div class="form-group">
+							<input type="text" class="form-control" name="horaTerminio" placeholder="Hora do terminio *">
+						</div>
+						
+						<div class="form-group">
+							<input type="text" class="form-control" name="disciplina" placeholder="Disciplina *">
+						</div>
+						
+						<small class="form-text text-muted">(*) Campus obrigatorios</small>
+						
+						<button type="submit" class="btn btn-primary" style="margin-top: 10px;">Agendar</button>
+						<a href="/newAgenda" class="btn btn-light" role="button" style="margin-top: 10px;">Cancelar</a>
+					</form>
+				</div>
+				
+			</div>
+		</section>
+
+	</body>
+
+</html>

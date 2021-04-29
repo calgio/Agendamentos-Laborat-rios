@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	
+	<title>Agendas de Aulas no Laboratorio</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<header>
+		
+		<nav class="navbar navbar-light bg-light">
+  			<span class="navbar-brand mb-0 h1" style="font-weight: bold;">Aulas Agendadas</span>
+		</nav>
+		
+	</header>
+	
+	<section>
+		
+		<div class="container" style="width: 60%; padding-bottom: 30px;">
+				
+			<div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:each="agenda : ${agendas}">				  
+				  <div class="card-body">
+				 	<p class="card-subtitle mb-2 text-muted" style="font-size: 0.8rem;">
+				 		<h2>Professor: <span th:text="${agenda.professor}"></span></h2>
+				 		<h2>Dia da Aula: <span th:text="${#dates.format(agenda.dataAgendada, 'dd-MM-yyyy')}"></span></h2>
+				 		<h2>Horario de inicio: <span th:text="${agenda.horaInicio}"></span></h2>
+				 		<h2>Horario de terminio: <span th:text="${agenda.horaTerminio}"></span></h2>
+				 		<h1 class="card-title" style="font-weight: bold; color: black; padding-top: 5px;">Disciplina: <span th:text="${agenda.disciplina}"></span></h1>
+				 		<a th:href="@{'/agenda/' + ${agenda.id}}" >Deletar</a>
+				 	</p>		  	
+				  
+				  </div>
+				  
+			</div>
+			
+		</div>
+		
+	</section>
+
+</body>
+</html>
